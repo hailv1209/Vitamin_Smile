@@ -15,7 +15,7 @@ export default function MenuPage() {
     });
   }, []);
   return (
-    <section className="mt-8">
+    <section className="mt-24 mb-24">
       {categories?.length > 0 && categories.map(c => (
         <div key={c._id}>
           <div className="text-center">

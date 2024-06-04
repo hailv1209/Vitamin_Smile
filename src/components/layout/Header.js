@@ -44,8 +44,8 @@ export default function Header() {
     userName = userName.split(' ')[0];
   }
   return (
-    <header>
-      <div className="flex items-center md:hidden justify-between">
+    <header className="fixed top-0 w-full z-90 "   style={{ backgroundColor: 'rgba(0, 173, 102, 0.8)' , marginLeft : -200, paddingLeft : 200,paddingRight : 200, height : 80 , paddingTop  : 20, zIndex : 999, marginBottom : 30}}>
+      <div className="flex items-center md:hidden justify-between" >
         <Link className="text-primary font-semibold text-2xl" href={'/'}>
           ST PIZZA
         </Link>
@@ -77,7 +77,7 @@ export default function Header() {
         </div>
       )}
       <div className="hidden md:flex items-center justify-between">
-        <nav className="flex items-center gap-8 text-gray-500 font-semibold">
+        <nav className="flex items-center gap-8 text-gray-200 font-semibold">
           <Link className="text-primary font-semibold text-2xl" href={'/'}>
             ST PIZZA
           </Link>
@@ -86,7 +86,7 @@ export default function Header() {
           <Link href={'/#about'}>About</Link>
           <Link href={'/#contact'}>Contact</Link>
         </nav>
-        <nav className="flex items-center gap-4 text-gray-500 font-semibold">
+        <nav className="flex items-center gap-4 text-gray-200 font-semibold">
           <AuthLinks status={status} userName={userName} />
           <Link href={'/cart'} className="relative">
             <ShoppingCart />

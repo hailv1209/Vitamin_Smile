@@ -71,6 +71,7 @@ export default function MenuItem(menuItem) {
               <p className="text-center text-gray-500 text-sm mb-2">
                 {description}
               </p>
+           
               {sizes?.length > 0 && (
                 <div className="py-2">
                   <h3 className="text-center text-gray-700">Pick your size</h3>
