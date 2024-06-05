@@ -3,6 +3,7 @@ import {CartContext} from "@/components/AppContext";
 import Bars2 from "@/components/icons/Bars2";
 import ShoppingCart from "@/components/icons/ShoppingCart";
 import {signOut, useSession} from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import {useContext, useState} from "react";
 
@@ -11,12 +12,12 @@ function AuthLinks({status, userName}) {
     return (
       <>
         <Link href={'/profile'} className="whitespace-nowrap">
-          Hello, {userName}
+          Chào, {userName}
         </Link>
         <button
           onClick={() => signOut()}
-          className="bg-primary rounded-full text-white px-8 py-2">
-          Logout
+          className="bg-primary rounded-full text-white px-5 py-2">
+          Đăng Xuất
         </button>
       </>
     );
@@ -24,9 +25,9 @@ function AuthLinks({status, userName}) {
   if (status === 'unauthenticated') {
     return (
       <>
-        <Link href={'/login'}>Login</Link>
-        <Link href={'/register'} className="bg-primary rounded-full text-white px-8 py-2">
-          Register
+        <Link href={'/login'}>Đăng Nhập</Link>
+        <Link href={'/register'} className="bg-primary rounded-full text-white px-4 py-2">
+        Đăng Ký
         </Link>
       </>
     );
@@ -44,11 +45,9 @@ export default function Header() {
     userName = userName.split(' ')[0];
   }
   return (
-    <header className="fixed top-0 w-full z-90 "   style={{ backgroundColor: 'rgba(0, 173, 102, 0.8)' , marginLeft : -200, paddingLeft : 200,paddingRight : 200, height : 80 , paddingTop  : 20, zIndex : 999, marginBottom : 30}}>
+    <header className="fixed top-0 w-full z-90 "   style={{ backgroundColor: 'rgba(0, 173, 102, 0.8)' , marginLeft : -200, paddingLeft : 200,paddingRight : 200, paddingTop  : 10, paddingBottom : 10, zIndex : 999, marginBottom : 30}}>
       <div className="flex items-center md:hidden justify-between" >
-        <Link className="text-primary font-semibold text-2xl" href={'/'}>
-          ST PIZZA
-        </Link>
+      <Image src={'/logo.png'} layout={'fill'} objectFit={'contain'} alt={'pizza'} /> 
         <div className="flex gap-8 items-center">
           <Link href={'/cart'} className="relative">
             <ShoppingCart />
@@ -69,22 +68,22 @@ export default function Header() {
         <div
           onClick={() => setMobileNavOpen(false)}
           className="md:hidden p-4 bg-gray-200 rounded-lg mt-2 flex flex-col gap-2 text-center">
-          <Link href={'/'}>Home</Link>
-          <Link href={'/menu'}>Menu</Link>
-          <Link href={'/#about'}>About</Link>
-          <Link href={'/#contact'}>Contact</Link>
+          <Link href={'/'}>Trang Chủ</Link>
+          <Link href={'/menu'}>Thực Đơn</Link>
+          <Link href={'/#about'}>Về Chúng Tôi</Link>
+          <Link href={'/#contact'}>Liên Hệ</Link>
           <AuthLinks status={status} userName={userName} />
         </div>
       )}
       <div className="hidden md:flex items-center justify-between">
         <nav className="flex items-center gap-8 text-gray-200 font-semibold">
-          <Link className="text-primary font-semibold text-2xl" href={'/'}>
-            ST PIZZA
-          </Link>
-          <Link href={'/'}>Home</Link>
-          <Link href={'/menu'}>Menu</Link>
-          <Link href={'/#about'}>About</Link>
-          <Link href={'/#contact'}>Contact</Link>
+        <div className="relative w-[70px] h-[70px]">
+        <Image src={'/logo.jpg'} layout={'fill'} objectFit={'contain'} alt={'Logo'} />
+        </div>
+          <Link href={'/'}>Trang Chủ</Link>
+          <Link href={'/menu'} prefetch>Thực Đơn</Link>
+          <Link href={'/#about'}>Về Chúng Tôi</Link>
+          <Link href={'/#contact'}>Liên Hệ</Link>
         </nav>
         <nav className="flex items-center gap-4 text-gray-200 font-semibold">
           <AuthLinks status={status} userName={userName} />

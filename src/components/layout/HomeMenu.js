@@ -23,10 +23,10 @@ export default function HomeMenu() {
           <Image src={'/sallad2.png'} width={107} height={195} alt={'sallad'} />
         </div>
       </div>
-      <div className="text-center mb-4">
+      <div className="text-center mb-4 mt-10">
         <SectionHeaders
-          subHeader={'check out'}
-          mainHeader={'Our Best Sellers'} />
+          subHeader={'Sản Phẩm'}
+          mainHeader={'Bán Chạy Nhất'} />
       </div>
       <div className="grid sm:grid-cols-3 gap-4">
         {bestSellers?.length > 0 && bestSellers.map(item => (

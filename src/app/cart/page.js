@@ -74,7 +74,7 @@ export default function CartPage() {
 
   if (cartProducts?.length === 0) {
     return (
-      <section className="mt-24  text-center ">
+      <section class="mt-24  text-center ">
         <SectionHeaders mainHeader="Cart" />
         <p className="mt-4">Your shopping cart is empty 😔</p>
       </section>
@@ -82,7 +82,7 @@ export default function CartPage() {
   }
 
   return (
-    <section className="mt-8">
+    <section className="mt-20">
       <div className="text-center">
         <SectionHeaders mainHeader="Cart" />
       </div>
@@ -94,6 +94,7 @@ export default function CartPage() {
           {cartProducts?.length > 0 && cartProducts.map((product, index) => (
             <CartProduct
               key={index}
+              index={index}
               product={product}
               onRemove={removeCartProduct}
             />
@@ -105,9 +106,9 @@ export default function CartPage() {
               Total:
             </div>
             <div className="font-semibold pl-2 text-right">
-              ${subtotal}<br />
-              $5<br />
-              ${subtotal + 5}
+              {subtotal}đ<br />
+              5000đ<br />
+              {subtotal + 5000}đ
             </div>
           </div>
         </div>
@@ -118,7 +119,7 @@ export default function CartPage() {
               addressProps={address}
               setAddressProp={handleAddressChange}
             />
-            <button type="submit">Pay ${subtotal+5}</button>
+            <button type="submit">Pay {subtotal+5000}đ</button>
           </form>
         </div>
       </div>

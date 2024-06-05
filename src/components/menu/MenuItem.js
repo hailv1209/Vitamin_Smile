@@ -55,17 +55,17 @@ export default function MenuItem(menuItem) {
       {showPopup && (
         <div
           onClick={() => setShowPopup(false)}
-          className="fixed inset-0 bg-black/80 flex items-center justify-center">
+          className="fixed inset-0 bg-black/80 flex items-center justify-center" style={{ zIndex : 9999 }}>
           <div
             onClick={ev => ev.stopPropagation()}
-            className="my-8 bg-white p-2 rounded-lg max-w-md">
+            className="my-8 bg-white p-2 rounded-lg max-w-md" >
             <div
               className="overflow-y-scroll p-2"
               style={{maxHeight:'calc(100vh - 100px)'}}>
               <Image
                 src={image}
                 alt={name}
-                width={300} height={200}
+                width={350} height={350}
                 className="mx-auto" />
               <h2 className="text-lg font-bold text-center mb-2">{name}</h2>
               <p className="text-center text-gray-500 text-sm mb-2">
@@ -74,7 +74,7 @@ export default function MenuItem(menuItem) {
            
               {sizes?.length > 0 && (
                 <div className="py-2">
-                  <h3 className="text-center text-gray-700">Pick your size</h3>
+                  <h3 className="text-center text-gray-700">Chọn size</h3>
                   {sizes.map(size => (
                     <label
                       key={size._id}
@@ -84,14 +84,14 @@ export default function MenuItem(menuItem) {
                         onChange={() => setSelectedSize(size)}
                         checked={selectedSize?.name === size.name}
                         name="size"/>
-                      {size.name} ${basePrice + size.price}
+                      {size.name} {basePrice + size.price}đ
                     </label>
                   ))}
                 </div>
               )}
               {extraIngredientPrices?.length > 0 && (
                 <div className="py-2">
-                  <h3 className="text-center text-gray-700">Any extras?</h3>
+                  <h3 className="text-center text-gray-700">Thêm Topping</h3>
                   {extraIngredientPrices.map(extraThing => (
                     <label
                       key={extraThing._id}
@@ -101,7 +101,7 @@ export default function MenuItem(menuItem) {
                         onChange={ev => handleExtraThingClick(ev, extraThing)}
                         checked={selectedExtras.map(e => e._id).includes(extraThing._id)}
                         name={extraThing.name} />
-                      {extraThing.name} +${extraThing.price}
+                      {extraThing.name} +{extraThing.price}đ
                     </label>
                   ))}
                 </div>
@@ -112,13 +112,13 @@ export default function MenuItem(menuItem) {
                 src={image}>
                 <div className="primary sticky bottom-2"
                      onClick={handleAddToCartButtonClick}>
-                  Add to cart ${selectedPrice}
+                  Thêm vào giỏ hàng {selectedPrice}đ
                 </div>
               </FlyingButton>
               <button
                 className="mt-2"
                 onClick={() => setShowPopup(false)}>
-                Cancel
+                Thoát
               </button>
             </div>
           </div>

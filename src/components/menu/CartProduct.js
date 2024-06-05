@@ -2,7 +2,7 @@ import {cartProductPrice} from "@/components/AppContext";
 import Trash from "@/components/icons/Trash";
 import Image from "next/image";
 
-export default function CartProduct({product,onRemove}) {
+export default function CartProduct({index,product,onRemove}) {
   return (
     <div className="flex items-center gap-4 border-b py-4">
       <div className="w-24">
@@ -20,13 +20,13 @@ export default function CartProduct({product,onRemove}) {
         {product.extras?.length > 0 && (
           <div className="text-sm text-gray-500">
             {product.extras.map(extra => (
-              <div key={extra.name}>{extra.name} ${extra.price}</div>
+              <div key={extra.name}>{extra.name} {extra.price}đ</div>
             ))}
           </div>
         )}
       </div>
       <div className="text-lg font-semibold">
-        ${cartProductPrice(product)}
+        {cartProductPrice(product)}đ
       </div>
       {!!onRemove && (
         <div className="ml-2">

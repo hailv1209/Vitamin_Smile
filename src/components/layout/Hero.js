@@ -1,35 +1,32 @@
 import Right from "@/components/icons/Right";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="hero md:mt-8">
-      <div className="py-8 md:py-12 md:mt-12 ">
-        <h1 className="text-4xl font-semibold">
-          Everything<br />
-          is better<br />
-          with a&nbsp;
-          <span className="text-primary">
-            Pizza
-          </span>
-        </h1>
-        <p className="my-6 text-gray-500 text-sm">
-          Pizza is the missing piece that makes every day complete, a simple yet delicious joy in life
-        </p>
-        <div className="flex gap-4 text-sm">
-          <button className="flex justify-center bg-primary uppercase flex items-center gap-2 text-white px-4 py-2 rounded-full">
-            Order now
-            <Right />
-          </button>
-          <button className="flex items-center border-0 gap-2 py-2 text-gray-600 font-semibold">
-            Learn more
-            <Right />
-          </button>
-        </div>
+    <section className="hero md:mt-10">
+    <div className="py-8 md:py-12 md:mt-12 ">
+      <h1 className="text-4xl font-semibold"> 
+        Thực phẩm sạch<br/> Sức khỏe vàng
+      </h1>
+      <p className="my-6 text-gray-600 text-lg"> 
+        Ăn sạch không chỉ là một xu hướng, đó là cách sống trọn vẹn và yêu thương cơ thể mình mỗi ngày
+      </p>
+      <div className="flex gap-4 text-lg"> 
+        <button className="flex justify-center bg-primary  flex items-center gap-2 text-white px-6 py-3 rounded-full"> 
+          <Link href='/menu'>Đặt hàng</Link>
+          <Right />
+        </button>
+        <button className="flex items-center border-0 gap-2 py-3 text-gray-800 font-semibold"> 
+          Tìm hiểu
+          <Right />
+        </button>
       </div>
-      <div className="relative hidden md:block md:mt-12">
-        <Image src={'/pizza.png'} layout={'fill'} objectFit={'contain'} alt={'pizza'} />
-      </div>
-    </section>
+    </div>
+    <div className="relative hidden md:block md:mt-12">
+      <Image src={'/salad.png'} layout={'fill'} objectFit={'contain'} alt={'pizza'} /> 
+    </div>
+  </section>
+  
   );
 }
